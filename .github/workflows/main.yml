@@ -6,8 +6,8 @@ on:
 jobs:
   List-Versions:
 #     runs-on: windows-latest
-#     runs-on: macos-latest
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
+#     runs-on: ubuntu-latest
     steps:
       # 代码检出
       - name: checkout
