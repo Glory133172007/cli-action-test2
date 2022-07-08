@@ -5,9 +5,9 @@ on:
         master-dev
 jobs:
   List-Versions:
-    runs-on: windows-latest
+#     runs-on: windows-latest
 #     runs-on: macos-latest
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       # 代码检出
       - name: checkout
@@ -26,3 +26,5 @@ jobs:
           hcloud version
           hcloud ECS NovaListVersions
           hcloud CodeCheck RunTask --cli-region="cn-north-4" --task_id="your_codecheck_task_id"
+      - name: Show Configure
+        run: hcloud configure list 
