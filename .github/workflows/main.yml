@@ -5,8 +5,8 @@ on:
         master-dev
 jobs:
   List-Versions:
-#     runs-on: windows-latest
-    runs-on: macos-latest
+    runs-on: windows-latest
+#     runs-on: macos-latest
 #     runs-on: ubuntu-latest
     steps:
       # 代码检出
