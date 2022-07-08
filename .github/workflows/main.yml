@@ -1,0 +1,30 @@
+name: List Versions of ECS With Default Region By KooCLI
+on:
+  push:
+    branches:
+        master-dev
+jobs:
+  List-Versions:
+#     runs-on: windows-latest
+#     runs-on: macos-latest
+    runs-on: ubuntu-latest
+    steps:
+      # 代码检出
+      - name: checkout
+        uses: actions/checkout@v2
+        
+#       - run: groups
+      
+      - name: List Versions
+        uses: ./
+        with:
+          access_key: ${{ secrets.ACCESSKEY }}
+          secret_key: ${{ secrets.SECRETACCESSKEY }}
+          region: 'cn-north-4'
+          command_list: 'hcloud ECS NovaListVersions'
+          
+      - name: Use KooCLI Test
+        run: |
+          hcloud version
+          hcloud ECS NovaListVersions
+          hcloud CodeCheck RunTask --cli-region="cn-north-4" --task_id="your_codecheck_task_id"
