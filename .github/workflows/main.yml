@@ -5,18 +5,18 @@ on:
         master-dev
 jobs:
   List-Versions:
-    runs-on: windows-latest
+#     runs-on: windows-latest
 #     runs-on: macos-latest
-#     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       # 代码检出
-      - name: checkout
-        uses: actions/checkout@v2
+#       - name: checkout
+#         uses: actions/checkout@v2
         
 #       - run: groups
       
       - name: List Versions
-        uses: huaweicloud/huaweicloud-cli-action@v1.0.0
+        uses: huaweicloud/huaweicloud-cli-action@v1.1.0
         with:
           access_key: ${{ secrets.ACCESSKEY }}
           secret_key: ${{ secrets.SECRETACCESSKEY }}
@@ -26,5 +26,6 @@ jobs:
           hcloud version
           hcloud ECS NovaListVersions
           hcloud CodeCheck RunTask --cli-region="cn-north-4" --task_id="your_codecheck_task_id"
+          
       - name: Show Configure
         run: hcloud configure list 
