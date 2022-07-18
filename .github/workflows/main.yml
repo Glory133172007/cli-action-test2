@@ -1,4 +1,4 @@
-name: List Versions of ECS With Default Region By KooCLI
+name: install koocli
 on:
   push:
     branches:
