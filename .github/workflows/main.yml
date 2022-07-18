@@ -16,7 +16,7 @@ jobs:
 #       - run: groups
       
       - name: List Versions
-        uses: huaweicloud/huaweicloud-cli-action@v1.1.0
+        uses: huaweicloud/huaweicloud-cli-action@v1.0.1
         with:
           access_key: ${{ secrets.ACCESSKEY }}
           secret_key: ${{ secrets.SECRETACCESSKEY }}
