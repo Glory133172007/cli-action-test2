@@ -1,4 +1,4 @@
-name: 'HuaweiCloud KooCLI Action'
+name: 'HuaweiCloud KooCLI Action1'
 description: 'Setup KooCLI and add it to the PATH and set default configuration.'
 branding:
   icon: 'cloud'
