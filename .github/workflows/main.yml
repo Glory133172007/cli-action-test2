@@ -9,8 +9,6 @@ jobs:
 #     runs-on: macos-latest
     runs-on: ubuntu-latest
     steps:
-
-      
       - name: Install Koocli
         uses: huaweicloud/huaweicloud-cli-action@v1.0.1
         with:
@@ -20,10 +18,14 @@ jobs:
           command_list: |
             hcloud version
           
+      - name: Show Configure
+        run: hcloud configure list 
+        
       - name: Use KooCLI
         run: |
           hcloud ECS NovaListVersions
-          hcloud CodeCheck RunTask --cli-region="cn-north-4" --task_id="your_codecheck_task_id"
-          
-      - name: Show Configure
-        run: hcloud configure list 
+          hcloud CodeCheck RunTask --cli-region="cn-north-4" --task_id="your_codecheck_task_id"         
+        
+        # 代码检出
+#       - name: checkout
+#         uses: actions/checkout@v2
