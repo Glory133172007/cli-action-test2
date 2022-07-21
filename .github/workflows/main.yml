@@ -12,17 +12,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Koocli
-        uses: huaweicloud/huaweicloud-cli-action@v1.0.1
+#       - name: Install Koocli
+#         uses: huaweicloud/huaweicloud-cli-action@v1.0.1
+#         with:
+#           access_key: ${{ secrets.ACCESSKEY }}
+#           secret_key: ${{ secrets.SECRETACCESSKEY }}
+#           region: 'cn-north-4'
+#           command_list: |
+#             ${{ env.HOME_DIR }}
+          
+      - name: Test
+        run: echo ${{ env.HOME_DIR }}
+        
+      - name: Create Bucket on HuaweiCloud OBS
+        uses: huaweicloud/obs-helper@v1.2.0
+        id: create_bucket_on_obs
         with:
           access_key: ${{ secrets.ACCESSKEY }}
           secret_key: ${{ secrets.SECRETACCESSKEY }}
           region: 'cn-north-4'
-          command_list: |
-            ${{ env.HOME_DIR }}
+          bucket_name: 'new-bucket'
+          operation_type: 'createBucket'
           
-      - name: Test
-        run: echo ${{ env.HOME_DIR }}
+      - name: Upload To HuaweiCloud OBS
+        uses: huaweicloud/obs-helper@v1.2.0
+        id: upload_file_to_obs
+        with:
+          access_key: ${{ secrets.ACCESSKEY }}
+          secret_key: ${{ secrets.SECRETACCESSKEY }}
+          region: 'cn-north-4'
+          bucket_name: 'new-bucket'
+          local_file_path: './README.md'
+          obs_file_path: 'src/README.md'
+          operation_type: 'upload'
         
 #           command_list: |
 #             hcloud version
