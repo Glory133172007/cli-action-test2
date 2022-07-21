@@ -23,9 +23,6 @@ jobs:
 #           region: 'cn-north-4'
 #           command_list: |
 #             ${{ env.HOME_DIR }}
-          
-      - name: Test
-        run: echo ${{ env.HOME_DIR }}
         
 #       - name: Create Bucket on HuaweiCloud OBS
 #         uses: huaweicloud/obs-helper@v1.2.0
@@ -59,6 +56,11 @@ jobs:
           local_file_path: ~/README.md
           obs_file_path: src/README.md
           operation_type: download
+
+          
+      - name: Test
+        run: ls ~/
+       
         
 #           command_list: |
 #             hcloud version
