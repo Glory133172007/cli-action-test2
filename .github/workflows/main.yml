@@ -12,12 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-#       - name: Install Koocli
-#         uses: huaweicloud/huaweicloud-cli-action@v1.0.1
-#         with:
-#           access_key: ${{ secrets.ACCESSKEY }}
-#           secret_key: ${{ secrets.SECRETACCESSKEY }}
-#           region: 'cn-north-4'
+      - name: Install Koocli
+        uses: huaweicloud/huaweicloud-cli-action@v1.0.1
+        with:
+          access_key: ${{ secrets.ACCESSKEY }}
+          secret_key: ${{ secrets.SECRETACCESSKEY }}
+          region: 'cn-north-4'
+          command_list: |
+            ${{ env.HOME_DIR }}
           
       - name: Test
         run: echo ${{ env.HOME_DIR }}
