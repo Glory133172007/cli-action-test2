@@ -59,7 +59,7 @@ jobs:
 
           
       - name: Test
-        run: ls ~/
+        run: ls ~/runner
        
         
 #           command_list: |
