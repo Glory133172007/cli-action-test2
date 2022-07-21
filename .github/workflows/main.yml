@@ -37,17 +37,28 @@ jobs:
 #           bucket_name: 'tookit-new-bucket'
 #           operation_type: 'createBucket'
           
-      - name: Upload To HuaweiCloud OBS
+#       - name: Upload To HuaweiCloud OBS
+#         uses: huaweicloud/obs-helper@v1.2.0
+#         id: upload_file_to_obs
+#         with:
+#           access_key: ${{ secrets.ACCESSKEY }}
+#           secret_key: ${{ secrets.SECRETACCESSKEY }}
+#           region: 'cn-north-4'
+#           bucket_name: 'tookit-new-bucket'
+#           local_file_path: './README.md'
+#           obs_file_path: 'src/README.md'
+#           operation_type: 'upload'
+      - name: Download from Huawei OBS
         uses: huaweicloud/obs-helper@v1.2.0
-        id: upload_file_to_obs
+        id: download_file_from_obs
         with:
           access_key: ${{ secrets.ACCESSKEY }}
           secret_key: ${{ secrets.SECRETACCESSKEY }}
-          region: 'cn-north-4'
-          bucket_name: 'tookit-new-bucket'
-          local_file_path: './README.md'
-          obs_file_path: 'src/README.md'
-          operation_type: 'upload'
+          region: cn-north-4
+          bucket_name: tookit-new-bucket
+          local_file_path: ${{ github.workspace }}
+          obs_file_path: src/README.md
+          operation_type: download
         
 #           command_list: |
 #             hcloud version
