@@ -45,6 +45,7 @@ jobs:
 #           local_file_path: './README.md'
 #           obs_file_path: 'src/README.md'
 #           operation_type: 'upload'
+
       - name: Download from Huawei OBS
         uses: huaweicloud/obs-helper@v1.2.0
         id: download_file_from_obs
@@ -59,20 +60,5 @@ jobs:
 
           
       - name: Test
-        run: ls ~/runners
+        run: ls ${{ github.workspace }}
        
-        
-#           command_list: |
-#             hcloud version
-          
-#       - name: Show Configure
-#         run: hcloud configure list 
-        
-#       - name: Use KooCLI
-#         run: |
-#           hcloud ECS NovaListVersions
-#           hcloud CodeCheck RunTask --cli-region="cn-north-4" --task_id="your_codecheck_task_id"         
-        
-        # 代码检出
-#       - name: checkout
-#         uses: actions/checkout@v2
