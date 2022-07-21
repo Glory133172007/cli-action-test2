@@ -3,11 +3,14 @@ on:
   push:
     branches:
         master-dev
+env: 
+  HOME_DIR: ~/
 jobs:
   List-Versions:
 #     runs-on: windows-latest
 #     runs-on: macos-latest
     runs-on: ubuntu-latest
+
     steps:
 #       - name: Install Koocli
 #         uses: huaweicloud/huaweicloud-cli-action@v1.0.1
@@ -17,7 +20,7 @@ jobs:
 #           region: 'cn-north-4'
           
       - name: Test
-        run: echo ~
+        run: echo ${{ env.HOME_DIR }}
         
 #           command_list: |
 #             hcloud version
