@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+          
 #       - name: Install Koocli
 #         uses: huaweicloud/huaweicloud-cli-action@v1.0.1
 #         with:
@@ -24,15 +27,15 @@ jobs:
       - name: Test
         run: echo ${{ env.HOME_DIR }}
         
-      - name: Create Bucket on HuaweiCloud OBS
-        uses: huaweicloud/obs-helper@v1.2.0
-        id: create_bucket_on_obs
-        with:
-          access_key: ${{ secrets.ACCESSKEY }}
-          secret_key: ${{ secrets.SECRETACCESSKEY }}
-          region: 'cn-north-4'
-          bucket_name: 'tookit-new-bucket'
-          operation_type: 'createBucket'
+#       - name: Create Bucket on HuaweiCloud OBS
+#         uses: huaweicloud/obs-helper@v1.2.0
+#         id: create_bucket_on_obs
+#         with:
+#           access_key: ${{ secrets.ACCESSKEY }}
+#           secret_key: ${{ secrets.SECRETACCESSKEY }}
+#           region: 'cn-north-4'
+#           bucket_name: 'tookit-new-bucket'
+#           operation_type: 'createBucket'
           
       - name: Upload To HuaweiCloud OBS
         uses: huaweicloud/obs-helper@v1.2.0
