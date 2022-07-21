@@ -31,7 +31,7 @@ jobs:
           access_key: ${{ secrets.ACCESSKEY }}
           secret_key: ${{ secrets.SECRETACCESSKEY }}
           region: 'cn-north-4'
-          bucket_name: 'new-bucket'
+          bucket_name: 'tookit-new-bucket'
           operation_type: 'createBucket'
           
       - name: Upload To HuaweiCloud OBS
@@ -41,7 +41,7 @@ jobs:
           access_key: ${{ secrets.ACCESSKEY }}
           secret_key: ${{ secrets.SECRETACCESSKEY }}
           region: 'cn-north-4'
-          bucket_name: 'new-bucket'
+          bucket_name: 'tookit-new-bucket'
           local_file_path: './README.md'
           obs_file_path: 'src/README.md'
           operation_type: 'upload'
