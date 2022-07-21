@@ -56,7 +56,7 @@ jobs:
           secret_key: ${{ secrets.SECRETACCESSKEY }}
           region: cn-north-4
           bucket_name: tookit-new-bucket
-          local_file_path: ${{ github.workspace }}
+          local_file_path: ~/README.md
           obs_file_path: src/README.md
           operation_type: download
         
