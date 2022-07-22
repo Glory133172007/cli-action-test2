@@ -2,7 +2,7 @@ name: Set Environment Variable
 on:
   push:
     branches:
-        master
+        master-dev
 env: 
   HOME_DIR: ~/
 jobs:
