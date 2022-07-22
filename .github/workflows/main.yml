@@ -1,64 +1,13 @@
-name: install koocli
+name: Set Environment Variable
 on:
   push:
     branches:
-        master-dev
+        master
 env: 
   HOME_DIR: ~/
 jobs:
-  List-Versions:
-#     runs-on: windows-latest
-#     runs-on: macos-latest
+  Echo-HOME_DIR:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-          
-#       - name: Install Koocli
-#         uses: huaweicloud/huaweicloud-cli-action@v1.0.1
-#         with:
-#           access_key: ${{ secrets.ACCESSKEY }}
-#           secret_key: ${{ secrets.SECRETACCESSKEY }}
-#           region: 'cn-north-4'
-#           command_list: |
-#             ${{ env.HOME_DIR }}
-        
-#       - name: Create Bucket on HuaweiCloud OBS
-#         uses: huaweicloud/obs-helper@v1.2.0
-#         id: create_bucket_on_obs
-#         with:
-#           access_key: ${{ secrets.ACCESSKEY }}
-#           secret_key: ${{ secrets.SECRETACCESSKEY }}
-#           region: 'cn-north-4'
-#           bucket_name: 'tookit-new-bucket'
-#           operation_type: 'createBucket'
-          
-#       - name: Upload To HuaweiCloud OBS
-#         uses: huaweicloud/obs-helper@v1.2.0
-#         id: upload_file_to_obs
-#         with:
-#           access_key: ${{ secrets.ACCESSKEY }}
-#           secret_key: ${{ secrets.SECRETACCESSKEY }}
-#           region: 'cn-north-4'
-#           bucket_name: 'tookit-new-bucket'
-#           local_file_path: './README.md'
-#           obs_file_path: 'src/README.md'
-#           operation_type: 'upload'
-
-      - name: Download from Huawei OBS
-        uses: huaweicloud/obs-helper@v1.2.0
-        id: download_file_from_obs
-        with:
-          access_key: ${{ secrets.ACCESSKEY }}
-          secret_key: ${{ secrets.SECRETACCESSKEY }}
-          region: cn-north-4
-          bucket_name: tookit-new-bucket
-          local_file_path: ~/README.md
-          obs_file_path: src/README.md
-          operation_type: download
-
-          
-      - name: Test
-        run: ls ${{ github.workspace }}
-       
+      - name: echo
+        run: echo ${{ env.HOME_DIR }}
